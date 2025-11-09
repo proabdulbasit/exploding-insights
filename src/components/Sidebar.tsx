@@ -22,12 +22,14 @@ export const Sidebar = () => {
   return (
     <aside className="w-64 h-screen glass-card border-r border-glass-border flex flex-col sticky top-0">
       <div className="p-6">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+        <div className="flex items-start gap-2 mb-2">
+          <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
             <Zap className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-foreground">Exploding Insights</h1>
+            <h1 className="text-lg font-bold text-foreground leading-tight">
+              Exploding<br />Insights
+            </h1>
             <span className="text-xs text-primary font-medium">PRO</span>
           </div>
         </div>
