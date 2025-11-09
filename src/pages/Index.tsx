@@ -79,7 +79,7 @@ const dataSources = [
     title: "Trends & Gaps Analysis",
     description: "AI-powered analysis of market trends and opportunity gaps.",
     icon: TrendingUp,
-    colorClass: "bg-muted",
+    colorClass: "bg-primary",
     stats: { label: "Insights", value: "124" }
   },
   {
