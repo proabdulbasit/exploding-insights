@@ -28,7 +28,7 @@ export const Sidebar = () => {
           </div>
           <div>
             <h1 className="text-lg font-bold text-foreground leading-tight">
-              Exploding<br />Insights
+              Exploding Insights
             </h1>
             <span className="text-xs text-primary font-medium">PRO</span>
           </div>
