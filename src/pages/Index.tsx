@@ -103,10 +103,10 @@ const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen w-full">
+    <div className="flex min-h-screen w-full bg-background">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
-      <main className="flex-1 w-full overflow-y-auto">
+      <main className="flex-1 w-full overflow-y-auto bg-background">
         {/* Mobile Header */}
         <div className="lg:hidden sticky top-0 z-30 glass-card border-b border-glass-border p-4 flex items-center gap-3">
           <button
