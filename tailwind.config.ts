@@ -47,6 +47,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        glass: {
+          DEFAULT: "hsl(var(--glass))",
+          border: "hsl(var(--glass-border))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +61,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        fiverr: "hsl(var(--fiverr))",
+        acquire: "hsl(var(--acquire))",
+        reddit: "hsl(var(--reddit))",
+        indie: "hsl(var(--indie))",
+        favorites: "hsl(var(--favorites))",
+        leaderboard: "hsl(var(--leaderboard))",
+        accelerator: "hsl(var(--accelerator))",
+        ai: "hsl(var(--ai))",
       },
       borderRadius: {
         lg: "var(--radius)",
