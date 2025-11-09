@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { WelcomeBanner } from "@/components/WelcomeBanner";
 import { DataSourceCard } from "@/components/DataSourceCard";
 import { StatsCard } from "@/components/StatsCard";
-import { Briefcase, Building2, MessageSquare, Users, Heart, BarChart3, Zap, Brain, Globe, Database, TrendingUp, Package, TrendingDown, DollarSign, Target } from "lucide-react";
+import { Briefcase, Building2, MessageSquare, Users, Heart, BarChart3, Zap, Brain, Globe, Database, TrendingUp, Package, TrendingDown, DollarSign, Target, Menu } from "lucide-react";
 
 const dataSources = [
   {
@@ -99,30 +100,50 @@ const stats = [
 ];
 
 const Index = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen w-full">
-      <Sidebar />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
-      <main className="flex-1 p-8 overflow-y-auto">
-        <WelcomeBanner />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {stats.map((stat) => (
-            <StatsCard key={stat.title} {...stat} />
-          ))}
+      <main className="flex-1 w-full overflow-y-auto">
+        {/* Mobile Header */}
+        <div className="lg:hidden sticky top-0 z-30 glass-card border-b border-glass-border p-4 flex items-center gap-3">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="p-2 hover:bg-secondary rounded-lg"
+          >
+            <Menu className="w-5 h-5 text-foreground" />
+          </button>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+              <Zap className="w-5 h-5 text-white" />
+            </div>
+            <h1 className="text-base font-bold text-foreground">Exploding Insights</h1>
+          </div>
         </div>
 
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-foreground mb-2">Quick Access</h2>
-          <p className="text-sm text-muted-foreground">
-            Explore profitable business ideas from multiple data sources
-          </p>
-        </div>
+        <div className="p-4 sm:p-6 lg:p-8">
+          <WelcomeBanner />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 sm:mb-8">
+            {stats.map((stat) => (
+              <StatsCard key={stat.title} {...stat} />
+            ))}
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {dataSources.map((source) => (
-            <DataSourceCard key={source.title} {...source} />
-          ))}
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Quick Access</h2>
+            <p className="text-sm text-muted-foreground">
+              Explore profitable business ideas from multiple data sources
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {dataSources.map((source) => (
+              <DataSourceCard key={source.title} {...source} />
+            ))}
+          </div>
         </div>
       </main>
     </div>

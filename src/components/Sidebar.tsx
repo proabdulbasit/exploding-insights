@@ -1,5 +1,6 @@
-import { Home, Briefcase, Building2, Users, PackageOpen, Heart, BarChart3, Zap, UserCircle, MessageSquare, Gift, HelpCircle } from "lucide-react";
+import { Home, Briefcase, Building2, Users, PackageOpen, Heart, BarChart3, Zap, UserCircle, MessageSquare, Gift, HelpCircle, X } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { icon: Home, label: "Home", path: "/" },
@@ -18,22 +19,48 @@ const bottomItems = [
   { icon: HelpCircle, label: "Feature requests?", path: "/requests" },
 ];
 
-export const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
-    <aside className="w-64 h-screen glass-card border-r border-glass-border flex flex-col sticky top-0">
-      <div className="p-6">
-        <div className="flex items-start gap-2 mb-2">
-          <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
-            <Zap className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h1 className="text-lg font-bold text-foreground leading-tight">
-              Exploding Insights
-            </h1>
-            <span className="text-xs text-primary font-medium">PRO</span>
+    <>
+      {/* Overlay for mobile */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      
+      <aside className={cn(
+        "w-64 h-screen glass-card border-r border-glass-border flex flex-col",
+        "fixed lg:sticky top-0 z-50 transition-transform duration-300",
+        isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+      )}>
+        <div className="p-6">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <div className="flex items-start gap-2">
+              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-lg font-bold text-foreground leading-tight">
+                  Exploding Insights
+                </h1>
+                <span className="text-xs text-primary font-medium">PRO</span>
+              </div>
+            </div>
+            <button
+              onClick={onClose}
+              className="lg:hidden p-1 hover:bg-secondary rounded-lg"
+            >
+              <X className="w-5 h-5 text-muted-foreground" />
+            </button>
           </div>
         </div>
-      </div>
 
       <nav className="flex-1 px-3">
         <ul className="space-y-1">
@@ -105,6 +132,7 @@ export const Sidebar = () => {
           </div>
         </div>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 };
