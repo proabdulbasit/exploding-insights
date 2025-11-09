@@ -26,10 +26,8 @@ export const Sidebar = () => {
           <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
             <Zap className="w-6 h-6 text-white" />
           </div>
-          <div>
-            <h1 className="text-lg font-bold text-foreground">Exploding Insights</h1>
-            <span className="text-xs text-primary font-medium">PRO</span>
-          </div>
+          <h1 className="text-lg font-bold text-foreground">Exploding Insights</h1>
+          <span className="text-xs text-primary font-medium">PRO</span>
         </div>
       </div>
 
