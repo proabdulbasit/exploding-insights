@@ -41,6 +41,10 @@ All colors MUST be HSL.
     --glass: 0 0% 100%;
     --glass-border: 240 5.9% 90%;
     
+    --shadow-sm: 0 2px 8px -2px hsl(240 5.9% 10% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(240 5.9% 10% / 0.12);
+    --shadow-lg: 0 8px 24px -6px hsl(240 5.9% 10% / 0.16);
+    
     --gradient-start: 328 86% 70%;
     --gradient-end: 262 83% 58%;
     
@@ -83,6 +87,7 @@ All colors MUST be HSL.
       hsla(var(--glass) / 0.4) 100%);
     backdrop-filter: blur(20px);
     border: 1px solid hsl(var(--glass-border) / 0.5);
+    box-shadow: var(--shadow-sm);
   }
   
   .gradient-primary {
@@ -97,5 +102,6 @@ All colors MUST be HSL.
   
   .hover-lift:hover {
     transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 }
